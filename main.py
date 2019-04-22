@@ -64,6 +64,20 @@ def runnet(x):
             ans[x][index][0] = stat(ans[x][index])
             ans[x].append([ans[x][index][0]])
 
+def costs():
+    basecost = []
+    for a in options:
+        basecost.append([])
+        for b in options[a]:
+            for ever in range(len(options[a][b]["output"])):
+
+                try:
+                    basecost[-1][ever] += (options[a][b]["output"][ever] - options[a][b]["right"][ever])
+                    basecost[-1][ever] /= 2
+                except:
+                    basecost[-1].append(options[a][b]["output"][ever] - options[a][b]["right"][ever])
+    print(basecost[0])
+
 
 def main():
     create_network(num_ofnet)
@@ -72,8 +86,11 @@ def main():
         location = "trial-" + str(len(options))
         options["trial-" + str(len(options))] = {}
         for evr in range(len(ans)):
-            options[location]["test-" + str(evr)] = ans[evr]
-
+            options[location]["test-" + str(evr)] = {}
+            options[location]["test-" + str(evr)]["network"] = ans[evr]
+            options[location]["test-" + str(evr)]["output"] = ans[evr][-1][0]
+            options[location]["test-" + str(evr)]["right"] = right[evr]
+    costs()
 
    
 main()
