@@ -1,4 +1,5 @@
 '''
+TODO
 connect sigma to numbers 
 make weights and biases random 
 
