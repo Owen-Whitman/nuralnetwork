@@ -16,7 +16,7 @@ for every in num_ofnet:
 right = [[1,2],[3,4]]
 fitness = []
 output = []
-
+options = {}
 
 def sigmanuts(num):
     anw = 1 / (math.exp(-num) + 1)
@@ -66,7 +66,14 @@ def runnet(x):
 
 def main():
     create_network(num_ofnet)
+    for every in range(1,len(inputs)):
+        runnet(every)
+        location = "trial-" + str(len(options))
+        options["trial-" + str(len(options))] = {}
+        for evr in range(len(ans)):
+            options[location]["test-" + str(evr)] = ans[evr]
+
 
 
 main()
-print(ans)
+print(options)
