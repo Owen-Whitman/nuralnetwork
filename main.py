@@ -66,17 +66,33 @@ def runnet(x):
 
 def costs():
     basecost = []
-    for a in options:
+    for a in options: 
         basecost.append([])
         for b in options[a]:
             for ever in range(len(options[a][b]["output"])):
-
                 try:
                     basecost[-1][ever] += (options[a][b]["output"][ever] - options[a][b]["right"][ever])
                     basecost[-1][ever] /= 2
                 except:
                     basecost[-1].append(options[a][b]["output"][ever] - options[a][b]["right"][ever])
-    print(basecost[0])
+    
+
+    for every in range(len(ans[0])-1):    
+        print(every)
+        for e in range(len(ans[0][every])-1):
+            for b in range(len(ans[0][every][e])-1):
+                denom = 0
+                '''for a in range(len(ans[0][every][e])-1):
+                    denom += ans[0][every][e][a] - ans[0][every][e][-1]
+                print(denom)
+                try:
+                    basecost[e+1][e] += 1
+                    #int((ans[0][every][e][b] - ans[0][every][e][-1]) / denom) * basecost[0][e]
+                except:
+                    basecost[e].append(2)
+                        #int((ans[0][every][e][b] - ans[0][every][e][-1]) / denom) * basecost[0][e])'''
+                
+    print(basecost)
 
 
 def main():
