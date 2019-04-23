@@ -1,7 +1,9 @@
 '''
 TODO
-connect sigma to numbers 
-make weights and biases random 
+1.connect sigma to numbers 
+2.make weights and biases random 
+3.create floats
+4.clean up code
 
 '''
 
@@ -71,20 +73,27 @@ def costs():
         for b in options[a]:
             for ever in range(len(options[a][b]["output"])):
                 try:
-                    basecost[-1][ever] += (options[a][b]["output"][ever] - options[a][b]["right"][ever])
+                    basecost[-1][ever] += float((options[a][b]["output"][ever] - options[a][b]["right"][ever]))
                     basecost[-1][ever] /= 2
                 except:
-                    basecost[-1].append(options[a][b]["output"][ever] - options[a][b]["right"][ever])
+                    basecost[-1].append(float(options[a][b]["output"][ever] - options[a][b]["right"][ever]))
     
-
-    for every in range(len(ans[0])-1):    
-        print(every)
-        for e in range(len(ans[0][every])-1):
-            for b in range(len(ans[0][every][e])-1):
+    print(ans[0])
+    print(" ")
+    for ewads in range(len(ans[0])-2,-1,-1):
+        basecost.append([])
+    for every in range(len(ans[0])-2,-1,-1):
+        for e in range(1,len(ans[0][every])):
+            num = 0
+            for b in range(len(ans[0][every])-1):
+                print(ans[0][every][e][b], e)
                 denom = 0
-                '''for a in range(len(ans[0][every][e])-1):
-                    denom += ans[0][every][e][a] - ans[0][every][e][-1]
-                print(denom)
+                for c in range(len(ans[0][every])-1):
+                    denom += ans[0][every][e][c] - ans[0][every][e][-1]
+                num += (float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom)) * basecost[-1][e]
+            basecost[e].append(num)
+                #print(ans[0][every], ans[0][every][e], ans[0][every][e][b])
+        '''
                 try:
                     basecost[e+1][e] += 1
                     #int((ans[0][every][e][b] - ans[0][every][e][-1]) / denom) * basecost[0][e]
@@ -96,6 +105,7 @@ def costs():
 
 
 def main():
+
     create_network(num_ofnet)
     for every in range(1,len(inputs)):
         runnet(every)
