@@ -85,22 +85,21 @@ def costs():
     for every in range(len(ans[0])-2,-1,-1):
         for e in range(1,len(ans[0][every])):
             num = 0
+            denom = 0
+            for c in range(len(ans[0][every])-1):
+                denom += ans[0][every][e][c] - ans[0][every][e][-1]
             for b in range(len(ans[0][every])-1):
-                print(ans[0][every][e][b], e)
-                denom = 0
-                for c in range(len(ans[0][every])-1):
-                    denom += ans[0][every][e][c] - ans[0][every][e][-1]
-                num += (float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom)) * basecost[-1][e]
-            basecost[e].append(num)
-                #print(ans[0][every], ans[0][every][e], ans[0][every][e][b])
-        '''
-                try:
-                    basecost[e+1][e] += 1
-                    #int((ans[0][every][e][b] - ans[0][every][e][-1]) / denom) * basecost[0][e]
-                except:
-                    basecost[e].append(2)
-                        #int((ans[0][every][e][b] - ans[0][every][e][-1]) / denom) * basecost[0][e])'''
-                
+                print(b)
+                #print(ans[0][every][e][b],denom,basecost)
+                '''if every == len(ans[0])-2:
+                    print(ans[0][every][e][b],denom,basecost[0][e-1], "all", float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom))
+                    basecost[0][b].append(float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom)) * basecost[0][e-1])
+                else:
+                    get = basecost[0][b].append(float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom)) * basecost[][e-1])
+                    #num += (float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom)) * basecost[-1][e-1]'''
+            #print("ez", len(ans[0])-1-every, num)
+            #basecost[len(ans[0])-1-every].append(num)
+
     print(basecost)
 
 
