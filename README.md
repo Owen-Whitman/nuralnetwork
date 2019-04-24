@@ -1,5 +1,2 @@
-Lets get this bread
-Lets gain this grain
-Let yeet this yeast
-Let us procure this pumpernickel
-Lets beat this bagettue reverse card
+Hi Im a younger person trying to write my own nural network 
+If you want you can see my messy code and watch my progress
