@@ -89,9 +89,12 @@ def costs():
             for c in range(len(ans[0][every])-1):
                 denom += ans[0][every][e][c] - ans[0][every][e][-1]
             for b in range(len(ans[0][every])-1):
-                print(b)
-                if every == len(ans[0])-2:
-                    basecost.get()
+                print(float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom),ans[0][every][e][b],denom, len(ans[0])-every-2)
+                try:
+                    basecost[len(ans[0])-1-every][b] += float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom) * basecost[len(ans[0])-every-2][b]
+                except:
+                    basecost[len(ans[0])-1-every].append(float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom) * basecost[len(ans[0])-every-2][b])
+
                     '''print(ans[0][every][e][b],denom,basecost[0][e-1], "all", float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom))
                     basecost[0][b].append(float(ans[0][every][e][b]-ans[0][every][e][-1])/float(denom)) * basecost[0][e-1])
                 else:
