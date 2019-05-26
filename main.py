@@ -42,16 +42,16 @@ def stat(every):
 	return answ
 
 def create_network(numeachlayer):
-	for item, count in list(enumerate(numeachlayer)):
+	for layer, count in list(enumerate(numeachlayer)):
 
-		for everyr in range(1, numeachlayer[item] + 1):
-			ans[0][item].append([random.randint(-5, 5)])  # random.uniform(-1,1)])
-			while len(ans[0][item][everyr]) != len(ans[0][item][0]):
-				ans[0][item][everyr].append(random.randint(-5, 5))  # random.uniform(-5,5))
-			ans[0][item][everyr].append(random.randint(-5, 5))  # random.uniform(-1,1))
-		if item != len(numeachlayer):
-			ans[0][item][0] = stat(ans[0][item])
-			ans[0][item + 1].append(ans[0][item][0])
+		for nurons in range(1, numeachlayer[layer] + 1):
+			ans[0][layer].append([random.randint(-5, 5)])  # random.uniform(-1,1)])
+			while len(ans[0][layer][nurons]) != len(ans[0][layer][0]):
+				ans[0][layer][nurons].append(random.randint(-5, 5))  # random.uniform(-5,5))
+			ans[0][layer][nurons].append(random.randint(-5, 5))  # random.uniform(-1,1))
+		if layer != len(numeachlayer):
+			ans[0][layer][0] = stat(ans[0][layer])
+			ans[0][layer + 1].append(ans[0][layer][0])
 
 def runnet(x):
 	index = 0
@@ -86,6 +86,7 @@ def main():
 class NN:
 
 	def __init__(self, input, numofnet):
+		
 		self.network = [[input]]
 		self.input = input
 		self.numofnets = num_ofnet
@@ -94,15 +95,15 @@ class NN:
 		self.createnetwork()
 	
 	def createnetwork(self):
-		for item in range(self.numofnets):
-			for everyr in range(1, self.numofnets[item] + 1):
-				self.network[item].append([random.randint(-5, 5)])  # random.uniform(-1,1)])
-				while len(self.network[item][everyr]) != len(self.network[item][0]):
-					self.network[item][everyr].append(random.randint(-5, 5))  # random.uniform(-5,5))
-				self.network[item][everyr].append(random.randint(-5, 5))  # random.uniform(-1,1))
-			if item != len(self.numofnets):
-				self.network[item][0] = stat(self.network[item])
-				self.network[item + 1].append(self.network[item][0])
+		for layer in range(len(self.numofnets)):
+			for nurons in range(1, self.numofnets[layer] + 1):
+				self.network[layer].append([random.randint(-5, 5)])  # random.uniform(-1,1)])
+				while len(self.network[layer][nurons]) != len(self.network[layer][0]):
+					self.network[layer][nurons].append(random.randint(-5, 5))  # random.uniform(-5,5))
+				self.network[layer][nurons].append(random.randint(-5, 5))  # random.uniform(-1,1))
+			if layer != len(self.numofnets):
+				self.network[layer][0] = stat(self.network[layer])
+				self.network[layer + 1].append(self.network[layer][0])
 
 
 
