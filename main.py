@@ -4,7 +4,7 @@ TODO
 2.make weights and biases random 
 3.create floats
 4.clean up code
-
+5. dab on dem haters
 '''
 
 import math
