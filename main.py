@@ -107,7 +107,6 @@ def costs():
 
 
 def main():
-
     create_network(num_ofnet)
     for every in range(1,len(inputs)):
         runnet(every)
