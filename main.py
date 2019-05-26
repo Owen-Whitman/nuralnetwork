@@ -118,7 +118,7 @@ def main():
             options[location]["test-" + str(evr)]["network"] = ans[evr]
             options[location]["test-" + str(evr)]["output"] = ans[evr][-1][0]
             options[location]["test-" + str(evr)]["right"] = right[evr]
-    costs()
+
 
    
 main()
