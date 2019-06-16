@@ -5,6 +5,7 @@ Hopefully this is helpful! Enjoy your coding journey
 
 import math
 import random
+import numbpy
 
 class NN:
 	def __init__(self, numofnet, input = None):
